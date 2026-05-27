@@ -14,7 +14,7 @@ env_hosts = os.getenv("ALLOWED_HOSTS")
 if env_hosts:
     ALLOWED_HOSTS = [host.strip() for host in env_hosts.split(",")]
 else:
-    ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+    ALLOWED_HOSTS = ["127.0.0.1", "localhost", "web-production-720e3.up.railway.app"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -57,11 +57,11 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "mysite.wsgi.application",
+WSGI_APPLICATION = "mysite.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL", "sqlite:///db.sqlite3")
+        default=os.getenv("DATABASE_URL")
     )
 }
 
@@ -106,6 +106,7 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
+CSRF_TRUSTED_ORIGINS = ["https://web-production-720e3.up.railway.app"]
 
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
