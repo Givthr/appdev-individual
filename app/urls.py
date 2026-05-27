@@ -1,6 +1,7 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
 from . import views
 
 router = DefaultRouter()
@@ -19,5 +20,5 @@ urlpatterns = [
     path('post/<int:pk>/comment/', views.comment_add, name='comment_add'),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
-    path('api-token-auth/', views.obtain_auth_token, name='api_token_auth'),
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
 ]
