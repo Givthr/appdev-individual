@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h2 class="center">User Profile</h2>
+    
+    <div class="post-card">
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Date Joined:</strong> {{ user.date_joined|date:"F j, Y" }}</p>
+    </div>
+
+    <div class="center" style="margin-top: 20px;">
+        <a href="{% url 'home' %}" class="button-link">Back to Feed</a>
+        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="link-button" style="color: red;">Logout</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

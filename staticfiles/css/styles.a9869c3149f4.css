@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    margin: auto; 
+}
+
+.flex-center-page {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; 
+    align-items: center !important;     
+    min-height: 100vh !important;      
+    padding: 0 !important;              
+}
+
+.container.center-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;  
+    text-align: center !important;  
+    justify-content: center !important;
+}
+
+.container.center-content div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.container.center-content .button-link {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.center {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form p {
+    margin: 0 0 10px 0;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 5px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.post-card {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.action-link {
+    margin-right: 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+a.button-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 10px 0 20px 0;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p, ul, hr {
+    margin: 0 0 15px 0;
+}

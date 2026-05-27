@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h2 class="center">Login</h2>
+
+    {% if form.errors %}
+        <p class="error">Wrong credentials. Please try again.</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    
+    <p class="center" style="margin-top: 15px; font-size: 14px;">
+        Don't have an account? <a href="{% url 'register' %}" class="action-link">Register</a>
+    </p>
+</div>
+
+</body>
+</html>

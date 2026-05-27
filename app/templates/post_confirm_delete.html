@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>Are you sure?</h2>
+    <p>Are you sure you want to delete the post: <strong>"{{ post.title }}"</strong>?</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" style="background-color: #d9534f;">Confirm Delete</button>
+        <a href="{% url 'home' %}">Cancel</a>
+    </form>
+</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=2">
+</head>
+<body>
+
+<header>
+    <nav>
+        {% if user.is_authenticated %}
+            <h2>Welcome, {{ user.username }}</h2>
+            <p>
+                <a href="{% url 'profile' %}" class="action-link">My Profile</a> | 
+                <a href="{% url 'post_create' %}" class="button-link">Create New Post</a> |
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="link-button">Logout</button>
+                </form>
+            </p>
+        {% else %}
+            <h2>Welcome, Guest</h2>
+            <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </nav>
+</header>
+
+<hr>
+
+<h2>Recent Posts</h2>
+
+{% for post in posts %}
+    <div class="post-card">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+        
+        <p><small>Posted by: {{ post.author.username|default:"Anonymous" }}</small></p>
+
+        <div class="actions">
+            {% if post.author == user %}
+                <a href="{% url 'post_edit' post.id %}" class="action-link edit-btn">Edit Post</a>
+                <a href="{% url 'post_delete' post.id %}" class="action-link delete-btn">Delete Post</a>
+            {% endif %}
+            
+            <a href="{% url 'comment_add' post.id %}" class="action-link">Add Comment</a>
+        </div>
+
+        <h4>Comments:</h4>
+        {% for comment in post.comment_set.all %}
+            <p class="comment">
+                <strong>{{ comment.author }}:</strong> {{ comment.text }}
+            </p>
+        {% empty %}
+            <p class="comment">No comments yet.</p>
+        {% endfor %}
+    </div>
+{% empty %}
+    <p>No posts yet.</p>
+{% endfor %}
+
+</body>
+</html>
